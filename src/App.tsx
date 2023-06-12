@@ -3,6 +3,7 @@ import { Stage, Layer, Image } from "react-konva";
 import useImage from "use-image";
 import jsonData from "./data/map-data.json";
 import Marker from "./components/marker/Marker";
+import InfoBox from "./components/infoBox/InfoBox";
 
 interface Position {
   position: [number, number];
@@ -33,6 +34,7 @@ const App = () => {
             onClick={() => handleMarkerClick(i)}
           />
         ))}
+        <InfoBox text="Test" />
       </Layer>
     </Stage>
   );
