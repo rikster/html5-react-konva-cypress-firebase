@@ -1,46 +1,76 @@
-# Getting Started with Create React App
+# Nearmap JS Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the [Nearmap](nearmap.com) JS test. The purpose of this assignment is to test your familiarity with web development, JS, React, and TDD.
 
-## Available Scripts
+## Task
 
-In the project directory, you can run:
+Build a simple app using React.
 
-### `npm start`
+Take a look at [wireframe-mockup.jpg](./assets/wireframe-mockup.jpg) to get a feel for what we're after.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Wireframe of task, showing map with markers. One marker is selected and shows an information box](./assests/../src/assets/wireframe-mockup.jpg?raw=true)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The application should:
 
-### `npm test`
+- Display [background-map.jpg](./assests/background-map.jpg).
+- Load the map data from [map-data.json](./assests/map-data.json).
+- Populate the map with markers. See [marker.png](./assests/marker.png) and [marker-selected.png](./assests/marker-selected.png).
+- When the user clicks on a marker, an information box will appear, showing the information for that location.
+- When the user clicks on the map, the marker will deselect, and the information box will disappear.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Assume the app and data set will grow over time. The initial architecture should take this into account.
 
-### `npm run build`
+## Testing your app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+We would like to be able run the following in the root of the project and have the app run locally:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm install
+npm start
+npm test
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If you have any further instructions, please include in the project's `README.md`.
 
-### `npm run eject`
+In terms of browser support, we only require the latest Chrome version.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Submission instructions
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **DO NOT** fork this repository or create pull requests on it as we don't want other candidates to see your solution.
+- Provide your solution as a `.zip` or .`gz` archive file, either via email or some Dropbox-like service, to your Nearmap contact.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Submission Response
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Tech
 
-## Learn More
+Dev and Build Server
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Vite
+- Why?
+  - Speed, quicker to work with than CRA
+  - Supports native ESM imports (no bundling required)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Testing
+
+- Vitest
+- Why?
+  - Fast
+  - Compatible with Jest
+  - Supports HMR
+
+Front End Framework
+
+- React
+
+Language
+
+- Typescript
+- Why?
+  - Type safety (prevent typing errors)
+
+Canvas Library
+
+- Konvajs
+- Why?
+  - Declaritive
+  - Good support for React 
