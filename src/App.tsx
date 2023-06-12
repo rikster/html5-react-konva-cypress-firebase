@@ -1,7 +1,7 @@
-import React from "react";
-import { Stage, Layer, Image } from "react-konva";
-import useImage from "use-image";
-import jsonData from "./data/map-data.json";
+import React, { useState } from 'react';
+import { Stage, Layer, Image } from 'react-konva';
+import useImage from 'use-image';
+import jsonData from './data/map-data.json';
 
 interface Position {
   position: [number, number];
@@ -13,12 +13,18 @@ const positions: Position[] = jsonData.map(({ position }) => ({
 }));
 
 const Marker: React.FC<Position> = ({ position }) => {
-  const [image] = useImage("/marker.png");
-  return <Image image={image} x={position[0]} y={position[1]} />;
+  const [isSelected, setSelected] = useState(false);
+  const [image] = useImage(isSelected ? '/marker-selected.png' : '/marker.png');
+
+  const handleClick = () => {
+    setSelected(!isSelected);
+  };
+
+  return <Image image={image} x={position[0]} y={position[1]} onClick={handleClick} />;
 };
 
 const App = () => {
-  const [bgImage] = useImage("/background-map.jpg");
+  const [bgImage] = useImage('/background-map.jpg');
 
   return (
     <Stage width={799} height={599}>
