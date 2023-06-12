@@ -14,11 +14,20 @@ const App = () => {
     setSelectedMarker(marker);
   };
 
+  const handleBackgroundClick = () => {
+    setSelectedMarker(null);
+  };
+
   return (
     <Stage width={799} height={599}>
       <Layer>
-        <Image image={bgImage} width={799} height={599} />
-        {markerData.map((marker: MarkerType, i) => (
+        <Image
+          image={bgImage}
+          width={799}
+          height={599}
+          onClick={handleBackgroundClick}
+        />
+        {markerData.map((marker: MarkerType, i: number) => (
           <Marker
             key={i}
             position={marker.position}
@@ -26,7 +35,7 @@ const App = () => {
             onClick={() => handleMarkerClick(marker)}
           />
         ))}
-        <InfoBox marker={selectedMarker} />
+        {selectedMarker && <InfoBox marker={selectedMarker} />}
       </Layer>
     </Stage>
   );
