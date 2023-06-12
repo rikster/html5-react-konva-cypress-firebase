@@ -1,13 +1,15 @@
 import React from "react";
 import { Rect, Text, Group } from "react-konva";
+import { MarkerType } from "../../types/markerType";
 
 interface InfoBoxProps {
-  text: string;
+  marker: MarkerType | null;
 }
 
-const InfoBox: React.FC<InfoBoxProps> = ({ text }) => {
+const InfoBox: React.FC<InfoBoxProps> = ({ marker }) => {
   const marginRight = 20;
   const marginTop = 20;
+  const padding = 10;
 
   return (
     <Group>
@@ -20,11 +22,15 @@ const InfoBox: React.FC<InfoBoxProps> = ({ text }) => {
         cornerRadius={5} // add this line to create rounded corners
       />
       <Text
-        x={799 - 187 - marginRight} // subtract margin from x coordinate
-        y={marginTop + 150} // add margin to y coordinate
-        text={text}
+        x={592 + padding} // increase the x coordinate by the padding
+        y={20 + padding} // increase the y coordinate by the padding
+        text={
+          marker
+            ? `Name: ${marker.name}\nType: ${marker.type}\nPopulation: ${marker.population}\nWealth: ${marker.wealth}\nAuthority: ${marker.authority}\nNumber of Guards: ${marker.numGuards}\nPosition: ${marker.position[0]}, ${marker.position[1]}`
+            : ""
+        }
         width={187}
-        align="center"
+        align="left"
         verticalAlign="middle"
       />
     </Group>

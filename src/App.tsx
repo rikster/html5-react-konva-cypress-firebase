@@ -1,40 +1,32 @@
 import { useState } from "react";
 import { Stage, Layer, Image } from "react-konva";
 import useImage from "use-image";
-import jsonData from "./data/map-data.json";
 import Marker from "./components/marker/Marker";
 import InfoBox from "./components/infoBox/InfoBox";
-
-interface Position {
-  position: [number, number];
-}
-
-// Make sure imported positions are correct type
-const positions: Position[] = jsonData.map(({ position }) => ({
-  position: [position[0], position[1]] as [number, number],
-}));
+import { MarkerType } from "./types/markerType";
+import { markerData } from "./services/dataService";
 
 const App = () => {
   const [bgImage] = useImage("/background-map.jpg");
-  const [selectedMarker, setSelectedMarker] = useState<number | null>(null);
+  const [selectedMarker, setSelectedMarker] = useState<MarkerType | null>(null);
 
-  const handleMarkerClick = (index: number) => {
-    setSelectedMarker(index);
+  const handleMarkerClick = (marker: MarkerType) => {
+    setSelectedMarker(marker);
   };
 
   return (
     <Stage width={799} height={599}>
       <Layer>
         <Image image={bgImage} width={799} height={599} />
-        {positions.map((pos, i) => (
+        {markerData.map((marker: MarkerType, i) => (
           <Marker
             key={i}
-            position={pos.position}
-            isSelected={i === selectedMarker}
-            onClick={() => handleMarkerClick(i)}
+            position={marker.position}
+            isSelected={marker === selectedMarker}
+            onClick={() => handleMarkerClick(marker)}
           />
         ))}
-        <InfoBox text="Test" />
+        <InfoBox marker={selectedMarker} />
       </Layer>
     </Stage>
   );
