@@ -19,25 +19,28 @@ const App = () => {
   };
 
   return (
-    <Stage width={799} height={599}>
-      <Layer>
-        <Image
-          image={bgImage}
-          width={799}
-          height={599}
-          onClick={handleBackgroundClick}
-        />
-        {markerData.map((marker: MarkerType, i: number) => (
-          <Marker
-            key={i}
-            position={marker.position}
-            isSelected={marker === selectedMarker}
-            onClick={() => handleMarkerClick(marker)}
+    <>
+      <h1>nearmap test</h1>
+      <Stage width={799} height={599}>
+        <Layer>
+          <Image
+            image={bgImage}
+            width={799}
+            height={599}
+            onClick={handleBackgroundClick}
           />
-        ))}
-        {selectedMarker && <InfoBox marker={selectedMarker} />}
-      </Layer>
-    </Stage>
+          {markerData.map((marker: MarkerType, i: number) => (
+            <Marker
+              key={i}
+              position={marker.position}
+              isSelected={marker === selectedMarker}
+              onClick={() => handleMarkerClick(marker)}
+            />
+          ))}
+          {selectedMarker && <InfoBox marker={selectedMarker} />}
+        </Layer>
+      </Stage>
+    </>
   );
 };
 
