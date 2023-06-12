@@ -24,9 +24,16 @@ Assume the app and data set will grow over time. The initial architecture should
 
 We would like to be able run the following in the root of the project and have the app run locally:
 
+Install and Start
+
 ```
 npm install
 npm start
+```
+
+Testing (see thoughts below)
+
+```
 npm test
 ```
 
@@ -45,32 +52,57 @@ In terms of browser support, we only require the latest Chrome version.
 
 Dev and Build Server
 
-- Vite
+- Scaffold w/ CRA
 - Why?
-  - Speed, quicker to work with than CRA
-  - Supports native ESM imports (no bundling required)
-
-Testing
-
-- Vitest
-- Why?
-  - Fast
-  - Compatible with Jest
-  - Supports HMR
+  - React Testing Lib and Jest built in
+  - Know it well
+  - Currently exploring Vite which much faster
 
 Front End Framework
 
 - React
+- Why?
+  - Fast
+  - Flexible simple paradigm
+  - Most popular FE frame work - for good reason
+  - Loads of community support
 
 Language
 
 - Typescript
 - Why?
   - Type safety (prevent typing errors)
+  - Easier to work with APIs
 
 Canvas Library
 
-- Konvajs
+- React Konva
 - Why?
-  - Declaritive
-  - Good support for React 
+  - Declarative
+    - Similar paradigm to React
+  - Good community support and docs
+
+Styling
+
+- CSS Tailwind
+- Why?
+  - Utility first
+    - Classes that serve a single purpose
+      - one class, one style.
+    - Dont get lots multiple CSS files, conventions, classes and styles doing the same thing
+    - No overriding of opinionated styles to override
+- Note: Konva, which is being used for the drawing and interaction with the canvas, doesn't directly support CSS styles
+
+## Testing
+
+Using Typescript mitigates the need for most unit tests, it now catches many of the traditional errors that JavaScript solutions produce. eg. passing the wrong values to functions.
+
+In React unit tests can often restrict devs being flexible, it potentially stymies creativity, playing with ideas, speed of change and modifying units of work.
+
+This does not apply to library code, where unit tests are great, esp. if they encapsulate complex algorithms/math and/or lots of integration.
+
+Therefore integration tests are cool imho.
+
+Similarly end-to-end testing in React which replicates user behavior is a great way to make sure your changes are not breaking other things in you code base.
+
+Note: This is not locked in stone. Just my thinking for the moment.
