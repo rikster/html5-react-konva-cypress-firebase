@@ -1,4 +1,5 @@
-#root {
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  margin: 0;
+  padding: 0;
+  /* padding: 2rem; */
 }

@@ -20,6 +20,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ marker }) => {
         height={300}
         fill="white"
         cornerRadius={5} // add this line to create rounded corners
+        data-testid="infobox-rect"
       />
       <Text
         x={592 + padding} // increase the x coordinate by the padding
@@ -32,6 +33,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ marker }) => {
         width={187}
         align="left"
         verticalAlign="middle"
+        data-testid="infobox-text"
       />
     </Group>
   );

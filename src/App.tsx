@@ -21,13 +21,14 @@ const App = () => {
   return (
     <>
       <h1>nearmap test</h1>
-      <Stage width={799} height={599}>
-        <Layer>
+      <Stage width={799} height={599} data-testid="app-stage">
+        <Layer data-testid="app-layer">
           <Image
             image={bgImage}
             width={799}
             height={599}
             onClick={handleBackgroundClick}
+            data-testid="app-background-image"
           />
           {markerData.map((marker: MarkerType, i: number) => (
             <Marker
@@ -35,6 +36,7 @@ const App = () => {
               position={marker.position}
               isSelected={marker === selectedMarker}
               onClick={() => handleMarkerClick(marker)}
+              data-testid="app-marker"
             />
           ))}
           {selectedMarker && <InfoBox marker={selectedMarker} />}

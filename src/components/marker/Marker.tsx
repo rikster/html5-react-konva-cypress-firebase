@@ -14,7 +14,7 @@ interface MarkerProps extends Position {
 const Marker: React.FC<MarkerProps> = ({ position, isSelected, onClick }) => {
   const [image] = useImage(isSelected ? "/marker-selected.png" : "/marker.png");
   return (
-    <Image image={image} x={position[0]} y={position[1]} onClick={onClick} />
+    <Image data-testid="marker-image" image={image} x={position[0]} y={position[1]} onClick={onClick} />
   );
 };
 
