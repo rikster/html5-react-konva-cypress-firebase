@@ -143,3 +143,8 @@ npm run cy:run:app_spec_all
 ```
 
 ![e2e test](./src/assets/e2e-test.png)
+
+<video controls>
+  <source src="./cypress/videos/app_spec_all.cy.ts.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
