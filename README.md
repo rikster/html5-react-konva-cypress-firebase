@@ -136,6 +136,14 @@ via the Cypress Interface
  npm run cy:open
 ```
 
+https://1drv.ms/v/s!AoWo5-07ozmCgaqGXJQC6sDfCZXWv_k?e=Xb3b7D
+
+<video controls>
+  <source src="<video controls>
+  <source src="https://1drv.ms/v/s!AoWo5-07ozmCgaqGXJQC6sDfCZXWv_k?e=Xb3b7D" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 via the Commandline
 
 ```
@@ -143,8 +151,3 @@ npm run cy:run:app_spec_all
 ```
 
 ![e2e test](./src/assets/e2e-test.png)
-
-<video controls>
-  <source src="./cypress/videos/app_spec_all.cy.ts.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
