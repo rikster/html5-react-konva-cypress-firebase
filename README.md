@@ -8,13 +8,13 @@ Build a simple app using React.
 
 Take a look at [wireframe-mockup.jpg](./assets/wireframe-mockup.jpg) to get a feel for what we're after.
 
-![Wireframe of task, showing map with markers. One marker is selected and shows an information box](./assests/../src/assets/wireframe-mockup.jpg?raw=true)
+![Wireframe of task, showing map with markers. One marker is selected and shows an information box](./src/assets/wireframe-mockup.jpg?raw=true)
 
 The application should:
 
-- Display [background-map.jpg](./assests/background-map.jpg).
-- Load the map data from [map-data.json](./assests/map-data.json).
-- Populate the map with markers. See [marker.png](./assests/marker.png) and [marker-selected.png](./assests/marker-selected.png).
+- Display [background-map.jpg](./public/background-map.jpg).
+- Load the map data from [map-data.json](./src/data/map-data.json).
+- Populate the map with markers. See [marker.png](./public/marker.png) and [marker-selected.png](./public/marker-selected.png).
 - When the user clicks on a marker, an information box will appear, showing the information for that location.
 - When the user clicks on the map, the marker will deselect, and the information box will disappear.
 
@@ -116,7 +116,7 @@ Styling
 
 - NOTE: This is not locked in stone. Just my thinking for the moment.
 
-## Test with Jest & React Testing Library (RTL)
+## Tests with Jest & React Testing Library (RTL)
 
 Used more as smoke test in this app to ensure veerything hs rendered properly w/ the right attributes
 
@@ -124,7 +124,9 @@ Used more as smoke test in this app to ensure veerything hs rendered properly w/
 npm test
 ```
 
-## Test with Cypress
+![App test](./src/assets/smoke-test.png)
+
+## Tests with Cypress
 
 Used for functional and e2e testing.
 
@@ -139,3 +141,5 @@ via the Commandline
 ```
 npm run cy:run:app_spec_all
 ```
+
+![e2e test](./src/assets/e2e-test.png)

@@ -36,13 +36,18 @@ describe("Functional test", () => {
       const canvasWidth = $canvas.width();
       const canvasHeight = $canvas.height();
 
-      // Divide in half since cursor will be at center of canvas
-      const canvasCenterX = canvasWidth / 2;
-      const canvasCenterY = canvasHeight / 2;
+      if (canvasWidth && canvasHeight) {
+        // Divide in half since cursor will be at center of canvas
+        const canvasCenterX = canvasWidth / 2;
+        const canvasCenterY = canvasHeight / 2;
 
-      cy.wrap($canvas).scrollIntoView().click(canvasCenterX, canvasCenterY);
-      cy.wrap($canvas).click(canvasCenterX, canvasCenterY);
-      cy.screenshot();
+        cy.wrap($canvas).scrollIntoView().click(canvasCenterX, canvasCenterY);
+        cy.wrap($canvas).click(canvasCenterX, canvasCenterY);
+        cy.screenshot();
+      } else {
+        // Handle the case when width or height is undefined
+        throw new Error("Canvas width or height is undefined");
+      }
     });
   });
 });
