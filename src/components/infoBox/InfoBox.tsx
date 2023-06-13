@@ -27,7 +27,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ marker }) => {
         y={20 + padding} // increase the y coordinate by the padding
         text={
           marker
-            ? `Name: ${marker.name}\nType: ${marker.type}\nPopulation: ${marker.population}\nWealth: ${marker.wealth}\nAuthority: ${marker.authority}\nNumber of Guards: ${marker.numGuards}\nPosition: ${marker.position[0]}, ${marker.position[1]}`
+            ? `Town Information:\n\nName: ${marker.name}\nType: ${marker.type}\nPopulation: ${marker.population}\nWealth: ${marker.wealth}\nAuthority: ${marker.authority}\nNumber of Guards: ${marker.numGuards}\nPosition: ${marker.position[0]}, ${marker.position[1]}`
             : ""
         }
         width={187}

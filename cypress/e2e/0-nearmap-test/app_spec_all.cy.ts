@@ -6,7 +6,7 @@ describe("Functional test", () => {
   });
 
   it("renders the title", () => {
-    cy.get("h1").contains("nearmap test");
+    cy.get("h1").contains("Nearmap Test");
   });
 
   it("renders the canvas", () => {
@@ -45,7 +45,6 @@ describe("Functional test", () => {
         cy.wrap($canvas).click(canvasCenterX, canvasCenterY);
         cy.screenshot();
       } else {
-        // Handle the case when width or height is undefined
         throw new Error("Canvas width or height is undefined");
       }
     });
