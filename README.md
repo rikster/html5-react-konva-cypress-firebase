@@ -33,10 +33,6 @@ npm start
 
 Testing (see thoughts below)
 
-```
-npm test
-```
-
 If you have any further instructions, please include in the project's `README.md`.
 
 In terms of browser support, we only require the latest Chrome version.
@@ -54,8 +50,8 @@ Dev and Build Server
 
 - Scaffold w/ CRA
 - Why?
-  - React Testing Lib and Jest built in
-  - Know it well
+  - React Testing Lib (RTL), Jest and Webpack built-in
+    - Know it well and its reliable
   - Currently exploring Vite which much faster
 
 Front End Framework
@@ -72,7 +68,18 @@ Language
 - Typescript
 - Why?
   - Type safety (prevent typing errors)
-  - Easier to work with APIs
+  - Makes working with APIs easier
+
+Testing
+
+- Jest and React Testing Library (RTL)
+  - Why?
+    - Built into CRA (compatible w/ Vite/Vitest)
+    - Tried and tested - pardon the pun
+- Cypress
+  - Why?
+    - Good for e2e and functional testing
+  - Found it to be less flakey than Selenium
 
 Canvas Library
 
@@ -86,23 +93,49 @@ Styling
 
 - CSS Tailwind
 - Why?
+
   - Utility first
     - Classes that serve a single purpose
       - one class, one style.
     - Dont get lots multiple CSS files, conventions, classes and styles doing the same thing
     - No overriding of opinionated styles to override
+
 - Note: Konva, which is being used for the drawing and interaction with the canvas, doesn't directly support CSS styles
 
-## Testing
+# Testing
 
-Using Typescript mitigates the need for most unit tests, it now catches many of the traditional errors that JavaScript solutions produce. eg. passing the wrong values to functions.
+## Thinking and Philosophy
 
-In React unit tests can often restrict devs being flexible, it potentially stymies creativity, playing with ideas, speed of change and modifying units of work.
+- Using Typescript mitigates the need for most unit tests, it now catches many of the traditional errors that JavaScript solutions produce. eg. passing the wrong values to functions.
 
-This does not apply to library code, where unit tests are great, esp. if they encapsulate complex algorithms/math and/or lots of integration.
+- In React unit tests can often restrict devs being flexible, it potentially stymies creativity, playing with ideas, speed of change and modifying units of work. This does not apply to library code, where unit tests are great, esp. if they encapsulate complex algorithms/math and/or lots of integration where changing one thing could break other things.
 
-Therefore integration tests are cool imho.
+- Therefore integration tests are better In my opinion. Similarly end-to-end testing in React which replicates user behavior is a great way to make sure your changes are not breaking other things in you code base. Again, where changing one thing could break other things.
 
-Similarly end-to-end testing in React which replicates user behavior is a great way to make sure your changes are not breaking other things in you code base.
+- Having said that this app is rendered on a HTML Canvas, we are going to have to use a tools like Cypress or Selenium to do some sort of of "visual regression testing" with snapshots with potentially visual or exact pixel comparisons.
 
-Note: This is not locked in stone. Just my thinking for the moment.
+- NOTE: This is not locked in stone. Just my thinking for the moment.
+
+## Test with Jest & React Testing Library (RTL)
+
+Used more as smoke test in this app to ensure veerything hs rendered properly w/ the right attributes
+
+```
+npm test
+```
+
+## Test with Cypress
+
+Used for functional and e2e testing.
+
+via the Cypress Interface
+
+```
+ npm run cy:open
+```
+
+via the Commandline
+
+```
+npm run cy:run:app_spec_all
+```

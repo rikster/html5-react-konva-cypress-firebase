@@ -21,6 +21,7 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src",
+    "cypress/e2e/0-nearmap-test/app_spec.cy.ts"
   ]
 }

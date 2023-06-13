@@ -1,0 +1,77 @@
+[
+    {
+        "position": [500, 65]
+    },
+    {
+        "name": "Dragontail",
+        "type": "village",
+        "population": 565,
+        "wealth": 11360,
+        "authority": "constable",
+        "numGuards": 5,
+        "position": [83, 65]
+    },
+    {
+        "name": "Black Crystal",
+        "type": "small town",
+        "population": 1385,
+        "wealth": 29842,
+        "authority": "constable",
+        "numGuards": 13,
+        "position": [244, 141]
+    },
+    {
+        "name": "Keld",
+        "type": "village",
+        "population": 49,
+        "wealth": 81,
+        "authority": "captain of the guard",
+        "numGuards": 0,
+        "position": [400, 110]
+    },
+    {
+        "name": "Carleone",
+        "type": "village",
+        "population": 593,
+        "wealth": 7701,
+        "authority": "sherriff",
+        "numGuards": 5,
+        "position": [333, 269]
+    },
+    {
+        "name": "Oakheart",
+        "type": "large town",
+        "population": 3274,
+        "wealth": 299335,
+        "authority": "captain of the guard",
+        "numGuards": 32,
+        "position": [89, 283]
+    },
+    {
+        "name": "Bournemouth",
+        "type": "small town",
+        "population": 1101,
+        "wealth": 86695,
+        "authority": "sherriff",
+        "numGuards": 11,
+        "position": [184, 423]
+    },
+    {
+        "name": "Wingston",
+        "type": "small city",
+        "population": 10846,
+        "wealth": 15563975,
+        "authority": "constable",
+        "numGuards": 108,
+        "position": [532, 363]
+    },
+    {
+        "name": "Kineallen",
+        "type": "large city",
+        "population": 24844,
+        "wealth": 93479383,
+        "authority": "constable",
+        "numGuards": 248,
+        "position": [371, 500]
+    }
+]
