@@ -24,8 +24,11 @@ describe("Functional test", () => {
           positionX = positionX + 10;
           positionY = positionY + 10;
 
-          cy.wrap($canvas).scrollIntoView().click(positionX, positionY);
-          cy.wrap($canvas).click(positionX, positionY);
+          cy.wrap($canvas)
+            .scrollIntoView()
+            .then(() => {
+              cy.wrap($canvas).click(positionX, positionY);
+            });
           cy.screenshot();
         });
       });
@@ -43,8 +46,11 @@ describe("Functional test", () => {
         const canvasCenterX = canvasWidth / 2;
         const canvasCenterY = canvasHeight / 2;
 
-        cy.wrap($canvas).scrollIntoView().click(canvasCenterX, canvasCenterY);
-        cy.wrap($canvas).click(canvasCenterX, canvasCenterY);
+        cy.wrap($canvas)
+          .scrollIntoView()
+          .then(() => {
+            cy.wrap($canvas).click(canvasCenterX, canvasCenterY);
+          });
         cy.screenshot();
       } else {
         throw new Error("Canvas width or height is undefined");
