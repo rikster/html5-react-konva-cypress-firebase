@@ -27,7 +27,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cy:open": "cypress open",
-    "cy:run:app_spec_all": "cypress run --spec cypress/e2e/0-nearmap-test/app_spec_all.cy.ts"
+    "cy:run:app_spec_all": "cypress run --spec cypress/e2e/0-nearmap-test/app_spec_all.cy.ts",
+    "cy:run:app_spec_all_applitools": "cypress run --spec cypress/e2e/0-nearmap-test/app_spec_all_applitools.cy.ts"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "@applitools/eyes-cypress": "^3.33.1",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "cypress": "^12.14.0"
   }
