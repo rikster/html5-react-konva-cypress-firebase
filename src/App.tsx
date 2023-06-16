@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Stage, Layer, Image } from "react-konva";
 import useImage from "use-image";
 import Marker from "./components/marker/Marker";
@@ -10,13 +10,15 @@ const App = () => {
   const [bgImage] = useImage("/background-map.jpg");
   const [selectedMarker, setSelectedMarker] = useState<MarkerType | null>(null);
 
-  const handleMarkerClick = (marker: MarkerType) => {
+  //useCallback hook, only if the marker state changes - too verbose for this size app? (scaleable)
+  const handleMarkerClick = useCallback((marker: MarkerType) => {
     setSelectedMarker(marker);
-  };
+  }, []);
 
-  const handleBackgroundClick = () => {
+  //useCallback hook, only if the selectedMarker state changes - too verbose for this size app? (scaleable)
+  const handleBackgroundClick = useCallback(() => {
     setSelectedMarker(null);
-  };
+  }, []);
 
   //useMemo hook, only if the selectedMarker state changes.
   const markers = useMemo(
@@ -30,7 +32,7 @@ const App = () => {
           data-testid="app-marker"
         />
       )),
-    [selectedMarker]
+    [selectedMarker, handleMarkerClick]
   );
 
   //useMemo hook, only if the selectedMarker state changes.
