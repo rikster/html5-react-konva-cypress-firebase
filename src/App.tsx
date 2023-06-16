@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Stage, Layer, Image } from "react-konva";
 import useImage from "use-image";
 import Marker from "./components/marker/Marker";
@@ -18,6 +18,27 @@ const App = () => {
     setSelectedMarker(null);
   };
 
+  //useMemo hook, only if the selectedMarker state changes.
+  const markers = useMemo(
+    () =>
+      markerData.map((marker: MarkerType, i: number) => (
+        <Marker
+          key={i}
+          position={marker.position}
+          isSelected={marker === selectedMarker}
+          onClick={() => handleMarkerClick(marker)}
+          data-testid="app-marker"
+        />
+      )),
+    [selectedMarker]
+  );
+
+  //useMemo hook, only if the selectedMarker state changes.
+  const infoBox = useMemo(
+    () => selectedMarker && <InfoBox marker={selectedMarker} />,
+    [selectedMarker]
+  );
+
   return (
     <>
       <div className="flex flex-col items-center bg-gray-200 min-h-screen">
@@ -33,16 +54,8 @@ const App = () => {
               onClick={handleBackgroundClick}
               data-testid="app-background-image"
             />
-            {markerData.map((marker: MarkerType, i: number) => (
-              <Marker
-                key={i}
-                position={marker.position}
-                isSelected={marker === selectedMarker}
-                onClick={() => handleMarkerClick(marker)}
-                data-testid="app-marker"
-              />
-            ))}
-            {selectedMarker && <InfoBox marker={selectedMarker} />}
+            {markers}
+            {infoBox}
           </Layer>
         </Stage>
       </div>
