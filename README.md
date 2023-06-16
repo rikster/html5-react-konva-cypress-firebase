@@ -151,3 +151,17 @@ npm run cy:run:app_spec_all
 ```
 
 ![e2e test](./src/assets/e2e-test.png)
+
+## Tests with Cypress and Applitools
+
+These tests automate 'visual regression testing' and compare the baseline screenshots (taken on the 1st run) with subsequent test runs.
+
+Note: without a license I cannot give access to anyone else. Sorry. 
+
+```
+npm run cy:run:app_spec_all_applitools
+```
+
+![Applitools test](./src/assets/applitools_1.png)
+
+![Applitools test](./src/assets/applitools_2.png)
