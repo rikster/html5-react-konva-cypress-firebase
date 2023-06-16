@@ -15,32 +15,36 @@ interface MarkerProps extends Position {
 }
 
 const Marker: React.FC<MarkerProps> = ({ position, isSelected, onClick }) => {
-  const [markerWidth, setMarkerWidth] = useState<number>(0);
-  const [markerHeight, setMarkerHeight] = useState<number>(0);
-  const [image, setImage] = useState<HTMLImageElement | null>(null);
+  const [marker, setMarker] = useState<{
+    width: number;
+    height: number;
+    image: HTMLImageElement | null;
+  }>({ width: 0, height: 0, image: null });
 
   useEffect(() => {
     const img = new window.Image(); //just use the window Image object
     img.src = isSelected ? "/marker-selected.png" : "/marker.png";
     //once loaded set its width and height
     img.onload = () => {
-      setMarkerWidth(img.naturalWidth);
-      setMarkerHeight(img.naturalHeight);
-      setImage(img);
+      setMarker({
+        width: img.naturalWidth,
+        height: img.naturalHeight,
+        image: img,
+      });
     };
   }, [isSelected]);
 
   const adjustedPosition = [
-    position[0] - markerWidth / 2,
-    position[1] - markerHeight,
+    position[0] - marker.width / 2,
+    position[1] - marker.height,
   ];
 
   return (
     //load only if image is not null, with the adjusted position
-    image ? (
+    marker.image ? (
       <Image
         data-testid="marker-image"
-        image={image}
+        image={marker.image}
         x={adjustedPosition[0]}
         y={adjustedPosition[1]}
         onClick={onClick}
