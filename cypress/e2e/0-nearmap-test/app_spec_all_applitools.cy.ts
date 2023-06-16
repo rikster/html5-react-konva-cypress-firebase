@@ -28,13 +28,19 @@ describe("Functional test", () => {
       testName: "See correct InfoBox and selected Marker",
     });
 
+    // The marker dimensions has to be hard coded in Cypress
+    // b/c it cannot create a new Image object and load an image file to get
+    // its dimensions due to CORS policy and limitations
+    const markerWidth = 23;
+    const markerHeight = 37;
+
     cy.fixture("map-data.json").then((jsonData) => {
       jsonData.forEach((entry) => {
         let [positionX, positionY] = entry.position;
 
         cy.get("canvas").then(($canvas: JQuery<HTMLCanvasElement>) => {
-          positionX = positionX + 10;
-          positionY = positionY + 10;
+          positionX = positionX - markerWidth / 2; // adjusted for the new marker position
+          positionY = positionY - markerHeight; // adjusted for the new marker position
 
           cy.wrap($canvas)
             .scrollIntoView()
