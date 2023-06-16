@@ -25,9 +25,18 @@ const InfoBox: React.FC<InfoBoxProps> = ({ marker }) => {
       <Text
         x={592 + padding} // increase the x coordinate by the padding
         y={20 + padding} // increase the y coordinate by the padding
+        //use optional chaining to avoid a potential TypeError if marker is null
+        //make template literals more readable
         text={
           marker
-            ? `Town Information:\n\nName: ${marker.name}\nType: ${marker.type}\nPopulation: ${marker.population}\nWealth: ${marker.wealth}\nAuthority: ${marker.authority}\nNumber of Guards: ${marker.numGuards}\nPosition: ${marker.position[0]}, ${marker.position[1]}`
+            ? `Town Information:\n\n` +
+              `Name: ${marker?.name}\n` +
+              `Type: ${marker?.type}\n` +
+              `Population: ${marker?.population}\n` +
+              `Wealth: ${marker?.wealth}\n` +
+              `Authority: ${marker?.authority}\n` +
+              `Number of Guards: ${marker?.numGuards}\n` +
+              `Position: ${marker.position[0]},${marker.position[1]}`
             : ""
         }
         width={187}
