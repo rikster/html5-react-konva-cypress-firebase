@@ -43,8 +43,8 @@ const App = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center bg-gray-200 min-h-screen">
-        <h1 className="text-4xl font-bold text-blue-700 mt-8 mb-4">
+      <div className="flex min-h-screen flex-col items-center bg-gray-200">
+        <h1 className="mb-4 mt-8 text-4xl font-bold text-blue-700">
           Nearmap Test
         </h1>
         <Stage width={799} height={599} data-testid="app-stage">
