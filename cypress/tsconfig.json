@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+            "es5",
+            "dom"
+        ],
+        "types": [
+            "cypress",
+            "@applitools/eyes-cypress",
+            "node"
+        ],
+        "moduleResolution": "node" // or  "moduleResolution": "node16"  
+    },
+    "include": [
+        "**/*.ts"
+    ]
+}
