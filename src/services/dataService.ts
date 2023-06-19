@@ -1,5 +1,29 @@
-import jsonData from "../data/map-data.json";
+import { ref, get, child } from "firebase/database";
+import { db } from "../firebaseConfig";
 import { MarkerType } from "../types/markerType";
+
+// Fetch data from Firebase
+export async function fetchMarkerData(): Promise<MarkerType[]> {
+  const data: MarkerType[] = [];
+  
+  // get() a snapshot of the entire database at the root level
+  const snap = await get(child(ref(db), '/')); //root node prob should be /markers to allow for other data types in the future
+  
+  //cycle through each child of the snapshot and push it to the data array
+  snap.forEach(childSnap => {
+    const marker = childSnap.val();
+    if (isMarkerType(marker)) {
+      data.push({
+        ...marker,
+        position: [marker.position[0], marker.position[1]] as [number, number],
+      });
+    } else {
+      throw new Error("Invalid Marker data");
+    }
+  });
+
+  return data;
+}
 
 //type guard for marker data - take in any object and return a boolean
 function isMarkerType(obj: any): obj is MarkerType {
@@ -16,16 +40,3 @@ function isMarkerType(obj: any): obj is MarkerType {
     (obj.numGuards ? typeof obj.numGuards === "number" : true)
   );
 }
-
-//for type enforcement, we need to define the type of the position in json data;
-//map over json and return a new array of markers with the position as a tuple of numbers
-export const markerData: MarkerType[] = jsonData.map((marker) => {
-  if (isMarkerType(marker)) {
-    return {
-      ...marker,
-      position: [marker.position[0], marker.position[1]] as [number, number],
-    };
-  } else {
-    throw new Error("Invalid Marker data");
-  }
-});
