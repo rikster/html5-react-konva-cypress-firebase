@@ -1,0 +1,152 @@
+[
+  {
+    "position": [640, 110]
+  },
+  {
+    "authority": "constable",
+    "name": "Eagletail",
+    "numGuards": 6,
+    "population": 608,
+    "position": [210, 180],
+    "type": "village",
+    "wealth": 11960
+  },
+  {
+    "authority": "constable",
+    "name": "Emerald Crystal",
+    "numGuards": 15,
+    "population": 1425,
+    "position": [370, 330],
+    "type": "small town",
+    "wealth": 30542
+  },
+  {
+    "authority": "captain of the guard",
+    "name": "Leld",
+    "numGuards": 1,
+    "population": 55,
+    "position": [590, 280],
+    "type": "village",
+    "wealth": 89
+  },
+  {
+    "authority": "sherriff",
+    "name": "Darleone",
+    "numGuards": 6,
+    "population": 612,
+    "position": [510, 480],
+    "type": "village",
+    "wealth": 7890
+  },
+  {
+    "authority": "captain of the guard",
+    "name": "Birchheart",
+    "numGuards": 34,
+    "population": 3350,
+    "position": [230, 540],
+    "type": "large town",
+    "wealth": 305845
+  },
+  {
+    "authority": "sherriff",
+    "name": "Yournemouth",
+    "numGuards": 12,
+    "population": 1140,
+    "position": [360, 500],
+    "type": "small town",
+    "wealth": 88995
+  },
+  {
+    "authority": "constable",
+    "name": "Swingston",
+    "numGuards": 112,
+    "population": 11090,
+    "position": [680, 580],
+    "type": "small city",
+    "wealth": 15963975
+  },
+  {
+    "authority": "constable",
+    "name": "Rineallen",
+    "numGuards": 255,
+    "population": 25250,
+    "position": [560, 450],
+    "type": "large city",
+    "wealth": 94979383
+  },
+  {
+    "position": [660, 160]
+  },
+  {
+    "authority": "constable",
+    "name": "Liontail",
+    "numGuards": 6,
+    "population": 590,
+    "position": [240, 220],
+    "type": "village",
+    "wealth": 12000
+  },
+  {
+    "authority": "constable",
+    "name": "Ruby Crystal",
+    "numGuards": 14,
+    "population": 1440,
+    "position": [400, 360],
+    "type": "small town",
+    "wealth": 31000
+  },
+  {
+    "authority": "captain of the guard",
+    "name": "Yeld",
+    "numGuards": 1,
+    "population": 60,
+    "position": [620, 310],
+    "type": "village",
+    "wealth": 100
+  },
+  {
+    "authority": "sherriff",
+    "name": "Earleone",
+    "numGuards": 6,
+    "population": 620,
+    "position": [540, 510],
+    "type": "village",
+    "wealth": 8000
+  },
+  {
+    "authority": "captain of the guard",
+    "name": "Pineheart",
+    "numGuards": 35,
+    "population": 3400,
+    "position": [260, 570],
+    "type": "large town",
+    "wealth": 310000
+  },
+  {
+    "authority": "sherriff",
+    "name": "Zournemouth",
+    "numGuards": 13,
+    "population": 1180,
+    "position": [390, 250],
+    "type": "small town",
+    "wealth": 90000
+  },
+  {
+    "authority": "constable",
+    "name": "Qingston",
+    "numGuards": 115,
+    "population": 11300,
+    "position": [710, 510],
+    "type": "small city",
+    "wealth": 16263975
+  },
+  {
+    "authority": "constable",
+    "name": "Tineallen",
+    "numGuards": 260,
+    "population": 25600,
+    "position": [590, 480],
+    "type": "large city",
+    "wealth": 95979383
+  }
+]
