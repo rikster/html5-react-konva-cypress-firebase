@@ -1,11 +1,9 @@
-//all optionally undefinable except for position
-//at minimum, it will have a position in the form of a tuple
 export interface MarkerType {
   name?: string;
-  type?: string;
+  type?: "village" | "small town" | "large town" | "small city" | "large city";
   population?: number;
   wealth?: number;
-  authority?: string;
+  authority?: "constable" | "captain of the guard" | "sheriff";
   numGuards?: number;
   position: [number, number];
 }
