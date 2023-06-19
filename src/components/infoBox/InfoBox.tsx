@@ -1,6 +1,7 @@
 import React from "react";
 import { Rect, Text, Group } from "react-konva";
 import { MarkerType } from "../../types/markerType";
+import toTitleCase from "../../services/stringUtils";
 
 interface InfoBoxProps {
   marker: MarkerType | null;
@@ -25,9 +26,26 @@ const InfoBox: React.FC<InfoBoxProps> = ({ marker }) => {
       <Text
         x={592 + padding} // increase the x coordinate by the padding
         y={20 + padding} // increase the y coordinate by the padding
+        //use optional chaining to avoid a potential TypeError if marker is null
+        //make template literals more readable
         text={
           marker
-            ? `Town Information:\n\nName: ${marker.name}\nType: ${marker.type}\nPopulation: ${marker.population}\nWealth: ${marker.wealth}\nAuthority: ${marker.authority}\nNumber of Guards: ${marker.numGuards}\nPosition: ${marker.position[0]}, ${marker.position[1]}`
+            ? `Location Information:\n\n\n`.toUpperCase() +
+              `Name: ${marker?.name ? toTitleCase(marker?.name) : "N/A"}\n\n` +
+              `Type: ${marker?.type ? toTitleCase(marker?.type) : "N/A"}\n\n` +
+              `Population: ${
+                marker?.population ? marker.population.toLocaleString() : "N/A"
+              }\n\n` +
+              `Wealth: ₤${
+                marker?.wealth ? marker?.wealth.toLocaleString() : "N/A"
+              }\n\n` +
+              `Authority: ${
+                marker?.authority ? toTitleCase(marker?.authority) : "N/A"
+              }\n\n` +
+              `Number of Guards: ${
+                marker?.numGuards ? marker?.numGuards : "N/A"
+              }\n\n` +
+              `Position: ${marker.position[0]},${marker.position[1]}`
             : ""
         }
         width={187}
