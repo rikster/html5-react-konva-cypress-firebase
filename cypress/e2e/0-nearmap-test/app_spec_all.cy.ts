@@ -22,7 +22,7 @@ describe("Functional test", () => {
     const markerWidth = 23;
     const markerHeight = 37;
 
-    cy.fixture("map-data.json").then((jsonData) => {
+    cy.fixture("map-data-extended.json").then((jsonData) => {
       jsonData.forEach((entry) => {
         let [positionX, positionY] = entry.position;
 
@@ -30,37 +30,44 @@ describe("Functional test", () => {
           positionX = positionX - markerWidth / 2; // adjusted for the new marker position
           positionY = positionY - markerHeight; // adjusted for the new marker position
 
+          //click the marker position
           cy.wrap($canvas)
             .scrollIntoView()
             .then(() => {
               cy.wrap($canvas).click(positionX, positionY);
             });
-          cy.screenshot();
+          cy.screenshot().then(() => {
+            //click off the marker position,
+            //to allow the next marker to be clicked,
+            //if the next marker exists under the Info Box
+            cy.wrap($canvas).click(1, 1);
+          });
         });
       });
     });
-  });
 
-  it("should click off any marker position, the Info Box should disappear, no markers selected ", () => {
-    cy.get("canvas").then(($canvas: JQuery<HTMLCanvasElement>) => {
-      // Get dimension of the canvas
-      const canvasWidth = $canvas.width();
-      const canvasHeight = $canvas.height();
+    it("should click off any marker position, the Info Box should disappear, no markers selected ", () => {
+      cy.get("canvas").then(($canvas: JQuery<HTMLCanvasElement>) => {
+        // Get dimension of the canvas
+        const canvasWidth = $canvas.width();
+        const canvasHeight = $canvas.height();
 
-      if (canvasWidth && canvasHeight) {
-        // Divide in half since cursor will be at center of canvas
-        const canvasCenterX = canvasWidth / 2;
-        const canvasCenterY = canvasHeight / 2;
-        cy.wrap($canvas)
-          .scrollIntoView()
-          .then(() => {
-            cy.wrap($canvas).click(canvasCenterX, canvasCenterY);
-          });
-        cy.screenshot();
-      } else {
-        throw new Error("Canvas width or height is undefined");
-      }
+        if (canvasWidth && canvasHeight) {
+          // Divide in half since cursor will be at center of canvas
+          const canvasCenterX = canvasWidth / 2;
+          const canvasCenterY = canvasHeight / 2;
+          cy.wrap($canvas)
+            .scrollIntoView()
+            .then(() => {
+              cy.wrap($canvas).click(canvasCenterX, canvasCenterY);
+            });
+          cy.screenshot();
+        } else {
+          throw new Error("Canvas width or height is undefined");
+        }
+      });
     });
   });
 });
+
 export {};
