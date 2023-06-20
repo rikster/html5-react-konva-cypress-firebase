@@ -5,6 +5,8 @@ import Marker from "./components/marker/Marker";
 import InfoBox from "./components/infoBox/InfoBox";
 import { MarkerType } from "./types/markerType";
 import { fetchMarkerData } from "./services/dataService";
+import Search from "./components/search/Search";
+
 
 const App = () => {
   const [bgImage] = useImage("/background-map.jpg");
@@ -22,6 +24,16 @@ const App = () => {
     setSelectedMarker(marker);
   }, []);
 
+  const handleSearch = useCallback(
+    (name: string) => {
+      const searchedMarker = markerData.find(
+        (marker) => marker.name?.toLowerCase() === name.toLowerCase()
+      );
+      setSelectedMarker(searchedMarker || null);
+    },
+    [markerData]
+  );
+  
   const handleBackgroundClick = useCallback(() => {
     setSelectedMarker(null);
   }, []);
@@ -51,6 +63,7 @@ const App = () => {
         <h1 className="mb-4 mt-8 text-4xl font-bold text-blue-700">
           Nearmap Test
         </h1>
+        <Search onSearch={handleSearch} />
         <Stage width={799} height={599} data-testid="app-stage">
           <Layer data-testid="app-layer">
             <Image
