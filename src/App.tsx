@@ -7,7 +7,6 @@ import { MarkerType } from "./types/markerType";
 import { fetchMarkerData } from "./services/dataService";
 import Search from "./components/search/Search";
 
-
 const App = () => {
   const [bgImage] = useImage("/background-map.jpg");
   const [selectedMarker, setSelectedMarker] = useState<MarkerType | null>(null);
@@ -25,15 +24,16 @@ const App = () => {
   }, []);
 
   const handleSearch = useCallback(
-    (name: string) => {
-      const searchedMarker = markerData.find(
-        (marker) => marker.name?.toLowerCase() === name.toLowerCase()
+    (query: string) => {
+      const lowercasedQuery = query.toLowerCase();
+      const searchedMarker = markerData.find((marker) =>
+        marker.name?.toLowerCase().includes(lowercasedQuery)
       );
       setSelectedMarker(searchedMarker || null);
     },
     [markerData]
   );
-  
+
   const handleBackgroundClick = useCallback(() => {
     setSelectedMarker(null);
   }, []);
