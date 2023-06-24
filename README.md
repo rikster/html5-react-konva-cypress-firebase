@@ -1,8 +1,10 @@
-# Nearmap JS Test
+# HTML 5 Canvas Map - React, Konva, Cypress, Applitools & Firebase
 
 Welcome to the [Nearmap](nearmap.com) JS test. The purpose of this assignment is to test your familiarity with web development, JS, React, and TDD.
 
 ## Task
+
+Finished Result: https://nearmap-test.firebaseapp.com/
 
 Build a simple app using React.
 

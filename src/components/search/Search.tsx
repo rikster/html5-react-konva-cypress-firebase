@@ -18,7 +18,7 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
     <form onSubmit={handleSearch} className="mb-4 mt-4 flex">
       <input
         type="text"
-        placeholder="Search location mame"
+        placeholder="Search location name"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         className="mr-0 rounded-l-lg border-b border-l border-t border-gray-200 bg-white p-4 text-gray-800"
