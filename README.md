@@ -172,7 +172,7 @@ npm run cy:run:app_spec_all_applitools
 
 ![Applitools test](./src/assets/applitools_2.png)
 
-# Fixing flaky Selenium testing - with [Cypress](https://www.cypress.io/) & [Applitools](https://applitools.com)
+# Fixing flaky unreliable visual testing - with [Cypress](https://www.cypress.io/) & [Applitools](https://applitools.com)
 
 - As mentioned to me during our first meeting, your most significant problem was the flakiness of Selenium, so here a proposed solution - that works.
 
