@@ -1,10 +1,14 @@
 # HTML 5 Canvas Map - React, Konva, Cypress, Applitools & Firebase
 
-Welcome to the [Nearmap](nearmap.com) JS test. The purpose of this assignment is to test your familiarity with web development, JS, React, and TDD.
+Welcome to this JS test. The purpose of this assignment is to test your familiarity with web development, JS, React, and TDD.
 
-## Task
+# Submission
 
 Finished Result: https://nearmap-test.firebaseapp.com/
+
+Note: Desktop only
+
+# Task
 
 Build a simple app using React.
 
@@ -167,3 +171,24 @@ npm run cy:run:app_spec_all_applitools
 ![Applitools test](./src/assets/applitools_1.png)
 
 ![Applitools test](./src/assets/applitools_2.png)
+
+# Fixing flaky Selenium testing - with [Cypress](https://www.cypress.io/) & [Applitools](https://applitools.com)
+
+- As mentioned to me during our first meeting, your most significant problem was the flakiness of Selenium, so here a proposed solution - that works.
+
+- In the commit, "fix async hack", I made a change as a result of a failed run through Cypress/Applitools, this happened when I had quickly coded a double-click on a Marker rather than properly using the async statement .then,  ...I was in a hurry.
+
+- So I updated the code, and it fixed (likely) the problem.<br/>
+(I would run more tests, but I have reached my quota) 
+
+- See the code update here; [**fix async hack**](https://github.com/rikster/html5-react-konva-cypress-firebase/commit/6a165579c3f884f6a2159c32336d455a2c3f311e), and the failed and subsequent passed tests below:<br/>
+
+## Failed 'Visual regression test'  
+
+![Applitools failed Test](./src/assets/applitools_fix_image1.png)
+
+## Passed 'Visual regression test' - after fix
+
+![Applitools fixed test](./src/assets/applitools_fix_image2.png)
+
+Ps. solid - no flakiness :)
